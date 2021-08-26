@@ -25,8 +25,14 @@ sigma = zeros(1, size(X, 2));
 %
 % Hint: You might find the 'mean' and 'std' functions useful.
 %       
+mu = mean(X); sigma = std(X); 
+range = max(X)-min(X); 
 
-
+% ======== Loop for normalization ========
+for itr = 1: size(X,2) % iteration upto number of features
+    X_norm(:,itr) = (X(:,itr)- mu(1,itr))/sigma(1,itr);  
+##    X_norm(:,itr) = (X(:,itr)- mu(itr))/range(itr);
+end
 
 
 
