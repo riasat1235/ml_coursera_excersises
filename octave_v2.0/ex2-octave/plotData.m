@@ -12,18 +12,16 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+% find indeces
+pos = find(y==1); neg = find(y==0); 
 
-
-
-
-
-
-
+plot(X(pos,1),X(pos,2),'b+','Linewidth', 1, 'MarkerSize', 5); 
+hold on; 
+plot(X(neg,1),X(neg,2),'ko','Linewidth', 1, 'MarkerSize', 5); 
+hold on; 
 
 % =========================================================================
 
-
-
-hold off;
+%hold off;
 
 end

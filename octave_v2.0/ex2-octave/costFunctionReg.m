@@ -19,7 +19,15 @@ grad = zeros(size(theta));
 
 
 
+z= X*theta;
+h= 1./(1+exp(-z));
+costF_log = -y.*log(h)-(1-y).*log(1-h);
+costF_reg = theta(2:size(theta,1),1).^2;
+J = (1/m)* sum(costF_log)+(lambda/(2*m))*sum(costF_reg);  
 
+grad(1,1) = 1/m* ((h-y)'*X(:,1));
+grad(2:size(theta,1),1) = (1/m)*((h-y)'*X(:,2:size(theta,1)))' + ...
+ (lambda/m)*theta((2:size(theta,1)),1);
 
 
 % =============================================================
