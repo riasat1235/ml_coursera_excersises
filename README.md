@@ -9,7 +9,8 @@ a) Linear regression of one feature
 b) Linear regression of multiple features
 ## 2. EX2- Logistic regression 
 a) logistic regression  
-b) logistic regression with regularizatio
+b) logistic regression with regularization
 ## 3. Ex3 - Logistic regression with multiple variables and Neural network
-1) Logistic regression with multiple variable 
-2) Neural network 
+a) Logistic regression with multiple variable 
+b) Neural network
+## 4. Ex4 - Neural network with back propagation   
