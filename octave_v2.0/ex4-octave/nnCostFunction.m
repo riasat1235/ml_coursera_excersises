@@ -63,23 +63,42 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+% X = [ones(m,1) X]; 
+sample = 1:num_labels; %sample(num_labels)= 0; 
+del1 = zeros(size(Theta1)); del2= zeros(size(Theta2)); 
 
+for i = 1:m
+ a1= X(i,:);        % activation layer 1(1 X 400). 
+ a1= [1;a1'];       % added bias unit ( 401x 1)
+ z2= (a1'*Theta1')';
+ a2 = sigmoid(z2); %(1 X 25)
+ a2=[1;a2];        % added bias unit at L2 (26 X1)
+ z3= (a2'*Theta2')';
+ a3 = sigmoid(z3);
+  
+ yy = (sample == y(i))';
+ costF(i) = sum(-yy.*log(a3)-(1-yy).*log(1-a3)); 
+ 
+ %%%% gradient 
+ 
+  d3 = a3-yy; % (10 x 1) 
+  d2 = (Theta2'*d3).* (a2.*(1-a2)); 
+  %sigmoidGradient([1;z2]); % (26 X 1)
+  del1 = del1+ d2(2:end,1)*a1'; % (25 x 401)  
+  del2 = del2+ d3*a2';   % ( 10 X 26) 
+end
 
+t1_nobias = Theta1(:,2:end); 
+%t1_nobias (:,1)= 0;  
 
+t2_nobias = Theta2(:,2:end);
+%t2_nobias(:,1) = 0; 
 
+Theta1_grad = (1/m)*del1 + (lambda/m)*[zeros(size(Theta1,1),1) t1_nobias]; 
+Theta2_grad = (1/m)*del2 + (lambda/m)*[zeros(size(Theta2,1),1) t2_nobias]; 
 
-
-
-
-
-
-
-
-
-
-
-
-
+J = (1/m)* sum(costF)+(lambda/(2*m))* (sum(sum(t1_nobias.^2)) + ...
+    sum(sum(t2_nobias.^2)));
 % -------------------------------------------------------------
 
 % =========================================================================

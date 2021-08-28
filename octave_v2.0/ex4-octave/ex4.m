@@ -1,4 +1,4 @@
-%% Machine Learning Online Class - Exercise 4 Neural Network Learning
+%%% Machine Learning Online Class - Exercise 4 Neural Network Learning
 
 %  Instructions
 %  ------------
@@ -15,16 +15,16 @@
 %  or any other files other than those mentioned above.
 %
 
-%% Initialization
+%%% Initialization
 clear ; close all; clc
 
-%% Setup the parameters you will use for this exercise
+%%% Setup the parameters you will use for this exercise
 input_layer_size  = 400;  % 20x20 Input Images of Digits
 hidden_layer_size = 25;   % 25 hidden units
 num_labels = 10;          % 10 labels, from 1 to 10   
                           % (note that we have mapped "0" to label 10)
 
-%% =========== Part 1: Loading and Visualizing Data =============
+%%% =========== Part 1: Loading and Visualizing Data =============
 %  We start the exercise by first loading and visualizing the dataset. 
 %  You will be working with a dataset that contains handwritten digits.
 %
@@ -45,7 +45,7 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
-%% ================ Part 2: Loading Parameters ================
+%%% ================ Part 2: Loading Parameters ================
 % In this part of the exercise, we load some pre-initialized 
 % neural network parameters.
 
@@ -57,7 +57,7 @@ load('ex4weights.mat');
 % Unroll parameters 
 nn_params = [Theta1(:) ; Theta2(:)];
 
-%% ================ Part 3: Compute Cost (Feedforward) ================
+%%% ================ Part 3: Compute Cost (Feedforward) ================
 %  To the neural network, you should first start by implementing the
 %  feedforward part of the neural network that returns the cost only. You
 %  should complete the code in nnCostFunction.m to return cost. After
@@ -83,7 +83,7 @@ fprintf(['Cost at parameters (loaded from ex4weights): %f '...
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
-%% =============== Part 4: Implement Regularization ===============
+%%% =============== Part 4: Implement Regularization ===============
 %  Once your cost function implementation is correct, you should now
 %  continue to implement the regularization with the cost.
 %
@@ -102,9 +102,9 @@ fprintf(['Cost at parameters (loaded from ex4weights): %f '...
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
-
-%% ================ Part 5: Sigmoid Gradient  ================
-%  Before you start implementing the neural network, you will first
+% 
+% %% ================ Part 5: Sigmoid Gradient  ================
+% %  Before you start implementing the neural network, you will first
 %  implement the gradient for the sigmoid function. You should complete the
 %  code in the sigmoidGradient.m file.
 %
@@ -120,7 +120,7 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
-%% ================ Part 6: Initializing Pameters ================
+% %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
 %  layer neural network that classifies digits. You will start by
 %  implementing a function to initialize the weights of the neural network
@@ -135,7 +135,7 @@ initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels);
 initial_nn_params = [initial_Theta1(:) ; initial_Theta2(:)];
 
 
-%% =============== Part 7: Implement Backpropagation ===============
+%%% =============== Part 7: Implement Backpropagation ===============
 %  Once your cost matches up with ours, you should proceed to implement the
 %  backpropagation algorithm for the neural network. You should add to the
 %  code you've written in nnCostFunction.m to return the partial
@@ -150,7 +150,7 @@ fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
-%% =============== Part 8: Implement Regularization ===============
+%%% =============== Part 8: Implement Regularization ===============
 %  Once your backpropagation implementation is correct, you should now
 %  continue to implement the regularization with the cost and gradient.
 %
@@ -172,7 +172,7 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
-%% =================== Part 8: Training NN ===================
+%%% =================== Part 8: Training NN ===================
 %  You have now implemented all the code necessary to train a neural 
 %  network. To train your neural network, we will now use "fmincg", which
 %  is a function which works similarly to "fminunc". Recall that these
@@ -209,7 +209,7 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 
 
-%% ================= Part 9: Visualize Weights =================
+% %% ================= Part 9: Visualize Weights =================
 %  You can now "visualize" what the neural network is learning by 
 %  displaying the hidden units to see what features they are capturing in 
 %  the data.
@@ -221,7 +221,7 @@ displayData(Theta1(:, 2:end));
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
-%% ================= Part 10: Implement Predict =================
+%%% ================= Part 10: Implement Predict =================
 %  After training the neural network, we would like to use it to predict
 %  the labels. You will now implement the "predict" function to use the
 %  neural network to predict the labels of the training set. This lets
