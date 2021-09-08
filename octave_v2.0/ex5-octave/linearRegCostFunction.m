@@ -20,11 +20,16 @@ grad = zeros(size(theta));
 %
 
 
+h= X*theta; 
+costF_lin= (h-y).^2; 
+costF_reg= theta(2:end).^2; 
+J = (1/(2*m))*sum(costF_lin)+(lambda/(2*m))*sum(costF_reg);
 
 
-
-
-
+grad(1,1) = 1/m * ((h-y)'*X(:,1)); 
+grad(2:size(theta,1),1) = ...
+(1/m)*((h-y)'*X(:,2:size(theta,1)))' + ...
+ (lambda/m)*theta((2:size(theta,1)),1);
 
 
 

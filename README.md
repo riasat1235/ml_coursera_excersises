@@ -13,4 +13,7 @@ b) logistic regression with regularization
 ## 3. Ex3 - Logistic regression with multiple variables and Neural network
 a) Logistic regression with multiple variable 
 b) Neural network
-## 4. Ex4 - Neural network with back propagation   
+## 4. Ex4 - Neural network with back propagation
+
+## 5. EX5- Some techniques
+   
