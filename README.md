@@ -16,4 +16,4 @@ b) Neural network
 ## 4. Ex4 - Neural network with back propagation
 
 ## 5. EX5- Some techniques
-   
+## 6. EX6- Support Vector Machine   
