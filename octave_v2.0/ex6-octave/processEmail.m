@@ -98,7 +98,20 @@ while ~isempty(email_contents)
     %
 
 
+    idx = strmatch(str, vocabList, 'exact');
+    if ~isempty(idx)
+        word_indices = [word_indices; idx];
+    end
 
+    % =============================================================
+
+    % Print to screen, ensuring that the output lines are not too long
+    if (l + length(str) + 1) > 78
+        fprintf('\n');
+        l = 0;
+    end
+    fprintf('%s ', str);
+    l = l + length(str) + 1;
 
 
 
